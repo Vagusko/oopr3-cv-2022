@@ -10,11 +10,11 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class ProductListComponent implements OnInit {
 
-  addUserForm: FormGroup;
+  addProductForm: FormGroup;
   products: Product[] = [];
 
   constructor(private cartService: CartService, private formBuilder: FormBuilder) {
-    this.addUserForm = this.formBuilder.group({
+    this.addProductForm = this.formBuilder.group({
       productId: 0,
       productName: "",
       description: "",
@@ -23,10 +23,10 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart() {
-    var productId = this.addUserForm.value.productId;
-    var productName = this.addUserForm.value.productName;
-    var description = this.addUserForm.value.description;
-    var value = this.addUserForm.value.value;
+    var productId = this.addProductForm.value.productId;
+    var productName = this.addProductForm.value.productName;
+    var description = this.addProductForm.value.description;
+    var value = this.addProductForm.value.value;
     var product = new Product(productId, productName, description, value);
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart')
