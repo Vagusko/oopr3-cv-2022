@@ -1,23 +1,50 @@
-<h1>User form</h1>
-<form [formGroup]="addUserForm" (ngSubmit)="addUser()">
-  <label for="userId">ID:</label><br>
-  <input type="number" id="userId" placeholder="Id" formControlName="userId"><br>
+<mat-card>
+  <mat-toolbar color="secondary">
+    <span class="fill-remaining-space">USER FORM</span>
+  </mat-toolbar>
+  <div class="form-container">
+    <form [formGroup]="addUserForm" (ngSubmit)="addUser()">
+      <mat-form-field class="form-element">
+        <mat-label>ID:</mat-label>
+        <input matInput type="number" id="userId" placeholder="Id" formControlName="userId">
+      </mat-form-field>
+      <mat-form-field class="form-element">
 
-  <label for="userName">Name:</label><br>
-  <input type="text" id="userName" placeholder="Name" formControlName="userName"><br>
-  <label for="birthDate">Birth:</label><br>
-  <input type="text" id="birthDate" placeholder="Birth" formControlName="birthDate"><br>
-  <label for="phoneNumber">Phone:</label><br>
-  <input type="text" id="phoneNumber" placeholder="Phone" formControlName="phoneNumber"><br>
-<!--  <span class="error" *ngIf="phoneNumber.invalid">Phone number should have valid format</span>-->
-  <label for="email">Email:</label><br>
-  <input type="text" id="email" placeholder="Email" formControlName="email"><br>
-  <label for="role">Role:</label><br>
-  <input type="text" id="role" placeholder="Role" formControlName="role"><br>
+        <mat-label>Name:</mat-label>
+        <input matInput type="text" id="userName" placeholder="Name" formControlName="userName">
+      </mat-form-field>
+      <mat-form-field class="form-element">
 
-  <button type="submit">Add</button>
-</form>
+        <mat-label>Birth:</mat-label>
 
+        <input matInput type="text" id="birthDate" placeholder="Birth" formControlName="birthDate">
+      </mat-form-field>
+      <mat-form-field class="form-element">
+
+        <mat-label>Phone:</mat-label>
+
+        <input matInput type="text" id="phoneNumber" placeholder="Phone" formControlName="phoneNumber">
+      </mat-form-field>
+      <mat-form-field class="form-element">
+
+        <mat-label>Email:</mat-label>
+
+        <input matInput type="text" id="email" placeholder="Email" formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="form-element">
+
+        <mat-label>Role:</mat-label>
+
+        <mat-select formControlName="role">
+          <mat-option value="USER">User</mat-option>
+          <mat-option value="EMPLOYEE">Employee</mat-option>
+          <mat-option value="ADMIN">Admin</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+</mat-card>
 <h1>Users:</h1>
 <table>
   <tr>
@@ -28,24 +55,24 @@
     <th>Number</th>
     <th>Role</th>
   </tr>
-    <tr  *ngFor="let user of users">
-      <td>
-        {{user.userId}}
-      </td>
-      <td>
-        {{user.userName}}
-      </td>
-      <td>
-        {{user.email}}
-      </td>
-      <td>
-        {{user.birthDate}}
-      </td>
-      <td>
-        {{user.phoneNumber}}
-      </td>
-      <td>
-        {{user.role}}
-      </td>
-    </tr>
+  <tr *ngFor="let user of users">
+    <td>
+      {{user.userId}}
+    </td>
+    <td>
+      {{user.userName}}
+    </td>
+    <td>
+      {{user.email}}
+    </td>
+    <td>
+      {{user.birthDate}}
+    </td>
+    <td>
+      {{user.phoneNumber}}
+    </td>
+    <td>
+      {{user.role}}
+    </td>
+  </tr>
 </table>
