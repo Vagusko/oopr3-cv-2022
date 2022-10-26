@@ -22,6 +22,8 @@ export class UserListComponent implements OnInit {
     role: new FormControl(Role.USER, Validators.required)
   });
 
+  displayedColumns: string[] = ['userId', 'userName', 'email', 'birthDate', 'phoneNumber', 'role'];
+
   constructor(private userService: UserService) {
   }
 
@@ -37,10 +39,8 @@ export class UserListComponent implements OnInit {
 
       let user = new User(userId, userName, email, birthDate, phoneNumber, role);
       this.userService.addUser(user);
-      this.users = this.userService.getUsers();
-    // } else {
-    //   window.alert("Bad form format" + this.addUserForm.errors);
-    // }
+      this.users = [...this.userService.getUsers()];
+      console.log(this.users)
   }
 
   ngOnInit(): void {
