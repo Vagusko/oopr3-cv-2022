@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './core/app.component';
+import { AppComponent } from './common/app.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { UserListComponent } from './user/user-list/user-list.component';
@@ -14,12 +14,16 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCardModule} from "@angular/material/card";
 import {MatTableModule} from "@angular/material/table";
 import {MatGridListModule} from "@angular/material/grid-list";
+import { AppRoutingModule } from './app-routing.module';
+import { AddUserFormComponent } from './user/add-user-form/add-user-form.component';
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    UserListComponent
+    UserListComponent,
+    AddUserFormComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatToolbarModule,
     MatCardModule,
     MatTableModule,
-    MatGridListModule
+    MatGridListModule,
+    AppRoutingModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
