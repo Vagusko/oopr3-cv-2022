@@ -1,0 +1,17 @@
+<h1>Product form</h1>
+<form [formGroup]= "addProductForm" (ngSubmit)="addToCart()" >
+  <label for="productId">ID:</label><br>
+  <input type="number" id="productId" placeholder="Id" formControlName="productId"><br>
+  <label for="productName">Product name:</label><br>
+  <input type="text" id="productName" placeholder="Name" formControlName="productName"><br>
+  <label for="description">Description:</label><br>
+  <input type="text" id="description" placeholder="description" formControlName="description"><br>
+  <label for="value">Value:</label><br>
+  <input type="number" id="value" placeholder="value" formControlName="value"><br>
+  <button type="submit" >Buy</button>
+</form>
+
+<h1>Products:</h1>
+<div *ngFor="let product of products">
+ <div>{{product.productId}},{{product.productName}},{{product.description}},{{product.value}}, </div>
+</div>

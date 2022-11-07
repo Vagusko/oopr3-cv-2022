@@ -1,0 +1,39 @@
+<mat-card class="center-card">
+  <mat-toolbar>
+    Add user form
+  </mat-toolbar>
+  <form [formGroup]="addUserForm" (ngSubmit)="addUser()" class="form">
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label for="userId">ID:</mat-label>
+      <input matInput type="number" id="userId" placeholder="Id" formControlName="userId">
+    </mat-form-field>
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label for="userName">Name:</mat-label>
+      <input matInput type="text" id="userName" placeholder="Name" formControlName="userName">
+    </mat-form-field>
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label for="birthDate">Birth:</mat-label>
+      <input matInput type="text" id="birthDate" placeholder="Birth" formControlName="birthDate">
+    </mat-form-field>
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label for="phoneNumber">Phone:</mat-label>
+      <input matInput type="text" id="phoneNumber" placeholder="Phone" formControlName="phoneNumber">
+      <mat-error *ngIf="!addUserForm.controls['phoneNumber'].valid && addUserForm.controls['phoneNumber'].touched">
+        Must be valid cz number.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label for="email">Email:</mat-label>
+      <input matInput type="text" id="email" placeholder="Email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label for="role">Role:</mat-label>
+      <mat-select id="role" formControlName="role" required>
+        <mat-option value="USER">User</mat-option>
+        <mat-option value="EMPLOYEE">Employee</mat-option>
+        <mat-option value="ADMIN">Admin</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" class="form-element">Add</button>
+  </form>
+</mat-card>
