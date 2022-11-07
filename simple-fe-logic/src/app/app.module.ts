@@ -16,6 +16,9 @@ import {MatTableModule} from "@angular/material/table";
 import {MatGridListModule} from "@angular/material/grid-list";
 import { AddUserFormComponent } from './users/add-user-form/add-user-form.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule} from "@angular/common/http";
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import { AppRoutingModule } from './app-routing.module';
     MatCardModule,
     MatTableModule,
     MatGridListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,9 +6,9 @@ export class User {
   email: string;
   birthDate: string;
   phoneNumber: string;
-  role: Role;
+  role: string;
 
-  constructor(userId: number, userName: string, email: string, birthDate: string, phoneNumber: string, role: Role) {
+  constructor(userId: number, userName: string, email: string, birthDate: string, phoneNumber: string, role: string) {
     this.userId = userId;
     this.userName = userName;
     this.email = email;
